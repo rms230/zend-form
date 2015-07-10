@@ -78,7 +78,6 @@ class LabelAwareTraitTest extends TestCase
             'foo2' => 'bar2',
         ];
 
-
         $object->setLabelOptions($labelOptions);
 
         $retrievedLabelOptions = $object->getLabelOptions();
@@ -146,7 +145,6 @@ class LabelAwareTraitTest extends TestCase
 
         $object->removeLabelOptions($toRemoveLabelOptions);
 
-
         $expectedLabelOptions = [
             'foo2' => 'bar2',
         ];
@@ -160,7 +158,6 @@ class LabelAwareTraitTest extends TestCase
     {
         $object = $this->getObjectForTrait('\Zend\Form\LabelAwareTrait');
 
-
         $object->setLabelOption('foo', 'bar');
 
         $expectedLabelOptions = [
@@ -168,62 +165,44 @@ class LabelAwareTraitTest extends TestCase
         ];
 
         $retrievedLabelOptions = $object->getLabelOptions();
-
         $this->assertEquals($expectedLabelOptions, $retrievedLabelOptions);
     }
 
     public function testGetInvalidLabelOption()
     {
-
         $object = $this->getObjectForTrait('\Zend\Form\LabelAwareTrait');
-
         $invalidOption = 'foo';
-
         $retrievedOption = $object->getLabelOption($invalidOption);
-
         $this->assertEquals(null, $retrievedOption);
     }
 
     public function testGetLabelOption()
     {
         $object = $this->getObjectForTrait('\Zend\Form\LabelAwareTrait');
-
         $option = 'foo';
         $value = 'bar';
-
         $object->setLabelOption($option, $value);
-
         $retrievedValue = $object->getLabelOption($option);
-
         $this->assertEquals($retrievedValue, $value);
     }
 
     public function testRemoveLabelOption()
     {
         $object = $this->getObjectForTrait('\Zend\Form\LabelAwareTrait');
-
-
         $option = 'foo';
         $value = 'bar';
-
         $object->setLabelOption($option, $value);
-
         $object->removeLabelOption($option);
-
         $retrievedValue = $object->getLabelOption($option);
-
         $this->assertEquals(null, $retrievedValue);
     }
 
     public function testHasValidLabelOption()
     {
         $object = $this->getObjectForTrait('\Zend\Form\LabelAwareTrait');
-
         $option = 'foo';
         $value = 'bar';
-
         $object->setLabelOption($option, $value);
-
         $hasLabelOptionResult = $object->hasLabelOption($option);
         $this->assertTrue($hasLabelOptionResult);
     }
@@ -231,9 +210,7 @@ class LabelAwareTraitTest extends TestCase
     public function testHasInvalidLabelOption()
     {
         $object = $this->getObjectForTrait('\Zend\Form\LabelAwareTrait');
-
         $option = 'foo';
-
         $hasLabelOptionResult = $object->hasLabelOption($option);
         $this->assertFalse($hasLabelOptionResult);
     }
